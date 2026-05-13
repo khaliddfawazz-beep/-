@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function VolunteerPlatformHome() {
   const opportunities = [
     {
@@ -61,13 +62,21 @@ export default function VolunteerPlatformHome() {
         </div>
 
         <div className="flex gap-3">
-          <button className="px-5 py-2 rounded-xl border border-green-700 text-green-700">
-            تسجيل الدخول
-          </button>
 
-          <button className="px-5 py-2 rounded-xl bg-green-700 text-white">
-            إنشاء حساب
-          </button>
+        <Link
+          to="/login"
+          className="px-5 py-2 rounded-xl border border-green-700 text-green-700 hover:bg-green-50 transition"
+        >
+          تسجيل الدخول
+        </Link>
+
+        <Link
+          to="/login"
+          className="px-5 py-2 rounded-xl bg-green-700 text-white hover:bg-green-800 transition"
+        >
+          إنشاء حساب
+        </Link>
+
         </div>
       </nav>
 
