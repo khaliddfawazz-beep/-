@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Opportunities from "./pages/Opportunities";
 import Certificates from "./pages/Certificates";
+import ManagerDashboard from "./pages/ManagerDashboard";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         
         <Route path="/opportunities" element={<Opportunities />} />
         <Route path="/certificates" element={<Certificates />} />
+        <Route path="/manager" element={<ManagerDashboard />} />
       </Routes>
 
     </BrowserRouter>

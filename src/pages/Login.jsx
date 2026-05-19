@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 export default function Login() {
@@ -137,12 +138,23 @@ export default function Login() {
               </div>
             )}
 
-            <button
-              type="submit"
-              className="w-full py-4 rounded-2xl bg-green-700 text-white text-lg font-semibold hover:bg-green-800 transition shadow-lg"
-            >
-              {isRegister ? "إنشاء الحساب" : "تسجيل الدخول"}
-            </button>
+           <div className="space-y-4">
+
+              <Link
+                  to="/dashboard"
+                  className="block w-full py-4 rounded-2xl bg-green-700 text-white text-lg font-semibold hover:bg-green-800 transition shadow-lg text-center"
+              >
+                   دخول كمتطوع
+              </Link>
+
+              <Link
+                  to="/manager"
+                  className="block w-full py-4 rounded-2xl bg-slate-800 text-white text-lg font-semibold hover:bg-slate-900 transition shadow-lg text-center"
+              >
+                 دخول كجهة منظمة
+              </Link>
+
+            </div>
           </form>
 
           {/* Footer */}

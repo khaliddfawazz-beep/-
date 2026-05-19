@@ -35,32 +35,37 @@ export default function Dashboard() {
             منصة سند
           </h1>
 
-          <nav className="space-y-5">
+         <nav className="space-y-5">
 
-            <button className="w-full text-right px-5 py-4 rounded-2xl bg-white/10 hover:bg-white/20 transition">
-              الرئيسية
-            </button>
+           <Link
+             to="/dashboard"
+             className="block w-full text-right px-5 py-4 rounded-2xl bg-white/10 hover:bg-white/20 transition"
+           >
+             الرئيسية
+           </Link>
 
-            <button className="w-full text-right px-5 py-4 rounded-2xl hover:bg-white/10 transition">
+           <Link
+             to="/opportunities"
+             className="block w-full text-right px-5 py-4 rounded-2xl hover:bg-white/10 transition"
+           >
               الفرص التطوعية
-            </button>
+           </Link>
 
-            <Link
+           <Link
              to="/certificates"
              className="block w-full text-right px-5 py-4 rounded-2xl hover:bg-white/10 transition"
-            >
+           >
              الشهادات
-            </Link>
+           </Link>
 
-            <button className="w-full text-right px-5 py-4 rounded-2xl hover:bg-white/10 transition">
-              الترتيب
-            </button>
+           <Link
+             to="/"
+             className="block w-full text-right px-5 py-4 rounded-2xl hover:bg-white/10 transition"
+           >
+             الصفحة الرئيسية
+           </Link>
 
-            <button className="w-full text-right px-5 py-4 rounded-2xl hover:bg-white/10 transition">
-              الإعدادات
-            </button>
-
-          </nav>
+         </nav>
         </div>
 
         <button className="w-full py-4 rounded-2xl bg-red-500 hover:bg-red-600 transition">
