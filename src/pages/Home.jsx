@@ -64,6 +64,13 @@ export default function VolunteerPlatformHome() {
         <div className="flex gap-3">
 
         <Link
+         to="/opportunities"
+         className="px-5 py-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition"
+        >
+         الفرص
+        </Link> 
+        
+        <Link
           to="/login"
           className="px-5 py-2 rounded-xl border border-green-700 text-green-700 hover:bg-green-50 transition"
         >
@@ -110,9 +117,12 @@ export default function VolunteerPlatformHome() {
              ابدأ الآن
             </Link>
 
-            <button className="px-7 py-4 bg-white border rounded-2xl">
-              استعراض الفرص
-            </button>
+            <Link
+             to="/opportunities"
+             className="px-7 py-4 bg-white border rounded-2xl hover:bg-slate-100 transition"
+            >
+             استعراض الفرص
+           </Link>
           </div>
         </div>
 
