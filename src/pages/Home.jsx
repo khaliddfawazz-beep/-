@@ -103,9 +103,12 @@ export default function VolunteerPlatformHome() {
 
           <div className="flex gap-4 justify-end">
             
-            <button className="px-7 py-4 bg-green-700 text-white rounded-2xl">
-              ابدأ الآن
-            </button>
+            <Link
+             to="/dashboard"
+             className="px-7 py-4 bg-green-700 text-white rounded-2xl hover:bg-green-800 transition"
+            >
+             ابدأ الآن
+            </Link>
 
             <button className="px-7 py-4 bg-white border rounded-2xl">
               استعراض الفرص
