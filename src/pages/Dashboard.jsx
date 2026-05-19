@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function Dashboard() {
   const activities = [
     {
@@ -44,9 +45,12 @@ export default function Dashboard() {
               الفرص التطوعية
             </button>
 
-            <button className="w-full text-right px-5 py-4 rounded-2xl hover:bg-white/10 transition">
-              الشهادات
-            </button>
+            <Link
+             to="/certificates"
+             className="block w-full text-right px-5 py-4 rounded-2xl hover:bg-white/10 transition"
+            >
+             الشهادات
+            </Link>
 
             <button className="w-full text-right px-5 py-4 rounded-2xl hover:bg-white/10 transition">
               الترتيب

@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Opportunities from "./pages/Opportunities";
+import Certificates from "./pages/Certificates";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         
         <Route path="/opportunities" element={<Opportunities />} />
+        <Route path="/certificates" element={<Certificates />} />
       </Routes>
 
     </BrowserRouter>
