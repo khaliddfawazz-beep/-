@@ -1,35 +1,30 @@
+import { useContext } from "react";
+import { OpportunityContext } from "../context/OpportunityContext";
+import { VolunteerContext } from "../context/VolunteerContext";
 export default function Opportunities() {
+  const {
+  joinedOpportunities,
+  setJoinedOpportunities,
+  points,
+  setPoints,
+  hours,
+  setHours
+} = useContext(VolunteerContext);
 
-  const opportunities = [
-    {
-      title: "حملة تنظيف الشوارع",
-      city: "دمشق",
-      category: "بيئي",
-      hours: 10,
-      organizer: "جمعية الأمل"
-    },
-    {
-      title: "تعليم الأطفال",
-      city: "حلب",
-      category: "تعليمي",
-      hours: 20,
-      organizer: "مبادرة شباب سوريا"
-    },
-    {
-      title: "دعم الأسر المحتاجة",
-      city: "حمص",
-      category: "إنساني",
-      hours: 15,
-      organizer: "الهلال الأحمر"
-    },
-    {
-      title: "تشجير الحدائق",
-      city: "اللاذقية",
-      category: "بيئي",
-      hours: 8,
-      organizer: "فريق أخضر"
-    }
-  ];
+
+ 
+  const { opportunities } = useContext(OpportunityContext);
+  const handleJoinOpportunity = (opportunity) => {
+
+  setJoinedOpportunities([
+    ...joinedOpportunities,
+    opportunity
+  ]);
+
+  setHours(hours + Number(opportunity.hours));
+
+  setPoints(points + (Number(opportunity.hours) * 10));
+};
 
   return (
     <div className="min-h-screen bg-slate-100 p-8">
@@ -130,9 +125,12 @@ export default function Opportunities() {
 
               </div>
 
-              <button className="w-full py-4 rounded-2xl bg-green-700 text-white hover:bg-green-800 transition font-semibold">
-                التقديم للفرصة
-              </button>
+                <button
+                   onClick={() => handleJoinOpportunity(item)}
+                    className="w-full py-4 rounded-2xl bg-green-700 text-white hover:bg-green-800 transition font-semibold"
+               >
+                   انضم الآن
+               </button>
 
             </div>
 

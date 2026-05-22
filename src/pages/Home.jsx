@@ -61,30 +61,40 @@ export default function VolunteerPlatformHome() {
           </div>
         </div>
 
+      
+      
+  
         <div className="flex gap-3">
 
-        <Link
-         to="/opportunities"
-         className="px-5 py-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition"
-        >
-         الفرص
-        </Link> 
-        
-        <Link
-          to="/login"
-          className="px-5 py-2 rounded-xl border border-green-700 text-green-700 hover:bg-green-50 transition"
-        >
-          تسجيل الدخول
-        </Link>
+              <Link
+               to="/opportunities"
+                 className="px-5 py-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition"
+             >
+                الفرص
+              </Link>
 
-        <Link
-          to="/login"
-          className="px-5 py-2 rounded-xl bg-green-700 text-white hover:bg-green-800 transition"
-        >
-          إنشاء حساب
-        </Link>
+            <Link
+                to="/manager"
+                  className="px-5 py-2 rounded-xl bg-slate-800 text-white hover:bg-slate-900 transition"
+            >
+                لوحة الجهة المنظمة
+            </Link>
 
-        </div>
+            <Link
+                 to="/login"
+                  className="px-5 py-2 rounded-xl border border-green-700 text-green-700 hover:bg-green-50 transition"
+            >
+               تسجيل الدخول
+            </Link>
+
+            <Link
+                to="/login"
+              className="px-5 py-2 rounded-xl bg-green-700 text-white hover:bg-green-800 transition"
+            > 
+              إنشاء حساب
+            </Link>
+
+       </div>
       </nav>
 
       {/* Hero Section */}

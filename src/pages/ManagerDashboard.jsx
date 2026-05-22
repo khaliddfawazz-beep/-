@@ -1,7 +1,40 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useContext } from "react";
+import { OpportunityContext } from "../context/OpportunityContext";
 
 export default function ManagerDashboard() {
+  const { opportunities, setOpportunities } = useContext(OpportunityContext);
+  
 
+const handleChange = (e) => {
+  setFormData({
+    ...formData,
+    [e.target.name]: e.target.value
+  });
+};
+
+const handleAddOpportunity = (e) => {
+  e.preventDefault();
+
+  setOpportunities([
+    ...opportunities,
+    formData
+  ]);
+
+  setFormData({
+    title: "",
+    city: "",
+    hours: "",
+    category: ""
+  });
+};
+  const [formData, setFormData] = useState({
+  title: "",
+  city: "",
+  hours: "",
+  category: ""
+});
   const volunteers = [
     {
       name: "محمد الأحمد",
@@ -20,21 +53,69 @@ export default function ManagerDashboard() {
     }
   ];
 
-  const campaigns = [
-    {
-      title: "حملة تنظيف الحدائق",
-      volunteers: 25,
-      hours: 10
-    },
-    {
-      title: "تعليم الأطفال",
-      volunteers: 18,
-      hours: 20
-    }
-  ];
+  
+
+const [title, setTitle] = useState("");
+const [hours, setHours] = useState("");
 
   return (
     <div className="min-h-screen bg-slate-100 flex">
+      <div className="bg-white p-8 rounded-3xl shadow-sm mb-10">
+
+  <h2 className="text-3xl font-bold mb-6 text-right">
+    إضافة فرصة تطوعية
+  </h2>
+
+  <form
+    onSubmit={handleAddOpportunity}
+    className="grid md:grid-cols-2 gap-5"
+  >
+
+    <input
+      type="text"
+      name="title"
+      placeholder="اسم الفرصة"
+      value={formData.title}
+      onChange={handleChange}
+      className="p-4 rounded-2xl border text-right"
+    />
+
+    <input
+      type="text"
+      name="city"
+      placeholder="المدينة"
+      value={formData.city}
+      onChange={handleChange}
+      className="p-4 rounded-2xl border text-right"
+    />
+
+    <input
+      type="number"
+      name="hours"
+      placeholder="عدد الساعات"
+      value={formData.hours}
+      onChange={handleChange}
+      className="p-4 rounded-2xl border text-right"
+    />
+
+    <input
+      type="text"
+      name="category"
+      placeholder="التصنيف"
+      value={formData.category}
+      onChange={handleChange}
+      className="p-4 rounded-2xl border text-right"
+    />
+
+    <button
+      type="submit"
+      className="bg-green-700 text-white py-4 rounded-2xl col-span-2 hover:bg-green-800 transition"
+    >
+      إضافة فرصة
+    </button>
+
+  </form>
+</div>
 
       {/* Sidebar */}
       <aside className="w-72 bg-green-800 text-white p-8 hidden md:flex flex-col justify-between">
@@ -103,10 +184,45 @@ export default function ManagerDashboard() {
 
           </div>
 
-          <button className="px-6 py-4 bg-green-700 text-white rounded-2xl hover:bg-green-800 transition">
-            + إنشاء فرصة جديدة
-          </button>
+          <div className="bg-slate-100 p-5 rounded-3xl flex flex-col md:flex-row gap-4">
 
+  <input
+    type="text"
+    placeholder="اسم الفرصة"
+    value={title}
+    onChange={(e) => setTitle(e.target.value)}
+    className="p-4 rounded-2xl border border-slate-300 focus:outline-none focus:border-green-700 text-right"
+  />
+
+  <input
+    type="number"
+    placeholder="عدد الساعات"
+    value={hours}
+    onChange={(e) => setHours(e.target.value)}
+    className="p-4 rounded-2xl border border-slate-300 focus:outline-none focus:border-green-700 text-right"
+  />
+
+  <button
+    onClick={() => {
+      if (!title || !hours) return;
+
+      const newCampaign = {
+        title,
+        volunteers: 0,
+        hours
+      };
+
+      setOpportunities([...opportunities, newCampaign]);
+
+      setTitle("");
+      setHours("");
+    }}
+    className="px-6 py-4 bg-green-700 text-white rounded-2xl hover:bg-green-800 transition"
+  >
+    + إضافة فرصة
+  </button>
+
+</div>
         </div>
 
         {/* Statistics */}
@@ -163,7 +279,7 @@ export default function ManagerDashboard() {
 
           <div className="space-y-5">
 
-            {campaigns.map((campaign, index) => (
+            {opportunities.map((campaign, index) => (
 
               <div
                 key={index}

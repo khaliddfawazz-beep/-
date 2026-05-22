@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import OpportunityProvider from "./context/OpportunityContext";
+import VolunteerProvider from "./context/VolunteerContext";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -9,22 +11,26 @@ import ManagerDashboard from "./pages/ManagerDashboard";
 
 function App() {
   return (
-    <BrowserRouter>
+    <VolunteerProvider>
+       <OpportunityProvider>
+          <BrowserRouter>
 
-      <Routes>
+             <Routes>
 
-        <Route path="/" element={<Home />} />
+                <Route path="/" element={<Home />} />
 
-        <Route path="/login" element={<Login />} />
+                <Route path="/login" element={<Login />} />
 
-        <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/dashboard" element={<Dashboard />} />
         
-        <Route path="/opportunities" element={<Opportunities />} />
-        <Route path="/certificates" element={<Certificates />} />
-        <Route path="/manager" element={<ManagerDashboard />} />
-      </Routes>
+                <Route path="/opportunities" element={<Opportunities />} />
+                <Route path="/certificates" element={<Certificates />} />
+                <Route path="/manager" element={<ManagerDashboard />} />
+            </Routes>
 
-    </BrowserRouter>
+         </BrowserRouter>
+      </OpportunityProvider>
+    </VolunteerProvider>
   );
 }
 

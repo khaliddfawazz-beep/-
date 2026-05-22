@@ -1,5 +1,13 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { VolunteerContext } from "../context/VolunteerContext";
 export default function Dashboard() {
+  const {
+  joinedOpportunities,
+  points,
+  hours
+ } = useContext(VolunteerContext);
+
   const activities = [
     {
       title: "تعليم الأطفال",
@@ -170,8 +178,8 @@ export default function Dashboard() {
           </div>
 
           <div className="flex justify-between mt-4 text-slate-500">
-            <span>3200 نقطة</span>
-            <span>5000 نقطة</span>
+            <span>{points}</span>
+            <span>{points}</span>
           </div>
 
         </section>
@@ -257,6 +265,40 @@ export default function Dashboard() {
           </div>
 
         </section>
+        <div className="bg-white rounded-[30px] p-8 shadow-sm mt-10">
+
+  <h2 className="text-3xl font-bold mb-8 text-right">
+    الفرص المنضم إليها
+  </h2>
+
+  <div className="space-y-5">
+
+    {joinedOpportunities.map((item, index) => (
+
+      <div
+        key={index}
+        className="bg-slate-100 p-5 rounded-2xl text-right"
+      >
+
+        <h3 className="text-2xl font-bold">
+          {item.title}
+        </h3>
+
+        <p className="text-slate-500 mt-2">
+          📍 {item.city}
+        </p>
+
+        <p className="text-green-700 mt-2">
+          ⏱ {item.hours} ساعة
+        </p>
+
+      </div>
+
+    ))}
+
+  </div>
+
+</div>
 
       </main>
 
