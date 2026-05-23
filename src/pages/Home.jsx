@@ -66,6 +66,13 @@ export default function VolunteerPlatformHome() {
   
         <div className="flex gap-3">
 
+             <Link
+                to="/rankings"
+                 className="px-5 py-2 rounded-xl bg-yellow-500 text-white hover:bg-yellow-600 transition"
+             >
+                 المتصدرون
+             </Link>
+
               <Link
                to="/opportunities"
                  className="px-5 py-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition"

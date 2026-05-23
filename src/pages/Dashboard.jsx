@@ -123,11 +123,11 @@ export default function Dashboard() {
           {[
             {
               title: "النقاط",
-              value: "3200"
+              value: points
             },
             {
               title: "الساعات التطوعية",
-              value: "150"
+              value: hours
             },
             {
               title: "الفرص المكتملة",

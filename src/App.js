@@ -8,6 +8,8 @@ import Dashboard from "./pages/Dashboard";
 import Opportunities from "./pages/Opportunities";
 import Certificates from "./pages/Certificates";
 import ManagerDashboard from "./pages/ManagerDashboard";
+import Rankings from "./pages/Rankings";
+
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
                 <Route path="/opportunities" element={<Opportunities />} />
                 <Route path="/certificates" element={<Certificates />} />
                 <Route path="/manager" element={<ManagerDashboard />} />
+                <Route path="/rankings" element={<Rankings />} />
             </Routes>
 
          </BrowserRouter>
